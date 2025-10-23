@@ -1,1 +1,5 @@
 1. Write a function to print the sum of n numbers.
+
+2. Write a function that takes two inputs n and m and outputs the number of unique paths from the top left corner to bottom right corner of a n×m grid.
+    Constraints: you can only move down or right 1 unit at a time.
+
