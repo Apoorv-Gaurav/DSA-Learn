@@ -87,4 +87,3 @@ print("Peek: ", obj1.peek())
 print("isEmpty: ", obj1.isEmpty())
 print("Size: ", obj1.size())
     
-    
