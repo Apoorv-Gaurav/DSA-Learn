@@ -1,0 +1,36 @@
+#Simple Decorator
+
+def my_decorator(func):
+    def wrapper():
+        print("Before the function runs")
+        func()
+        print("After the function runs")
+    return wrapper
+
+def greet():
+    print("Hello!")
+decorated_greet = my_decorator(greet)   # Manual Method
+decorated_greet()
+
+
+@my_decorator
+def greet():                   # Auotmatic method
+    print("Hello!")
+greet()
+
+
+
+# With Arguments
+
+def my_decorator(func):
+    def wrapper(*args, **kwargs):  # accept any arguments
+        print("Before function runs")
+        func(*args, **kwargs)
+        print("After function runs")
+    return wrapper
+
+@my_decorator
+def greet(name):
+    print(f"Hello, {name}!")
+
+greet("Apoorv")
