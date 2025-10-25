@@ -1,5 +1,4 @@
-#Singly Linked Lists
-
+# Singly Linked Lists
 class SinglyNode:
     def __init__(self,val,next=None):
         self.val=val
@@ -8,7 +7,6 @@ class SinglyNode:
     def __str__(self):
         return str(self.val)
 '''
-    
 head=SinglyNode(1)
 A=SinglyNode(3)
 B=SinglyNode(4)
@@ -17,7 +15,6 @@ C=SinglyNode(7)
 head.next = A
 A.next = B
 B.next = C
-
 
 #Traverse the list - 0(n)
 curr=head
