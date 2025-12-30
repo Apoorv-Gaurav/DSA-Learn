@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
+//Encapsulation, Constructor Type, Shallow Copy, Deep Copy, Destructor
 class Teacher
 {
 private:
