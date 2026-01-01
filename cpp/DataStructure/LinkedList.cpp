@@ -7,6 +7,11 @@ struct Node {
     Node* next;
     
     /*
+    Node(int val){
+        data = val;
+        next = NULL;
+    }
+
     Node(int data1, Node* next1){
         data = data1;
         next = next1;
@@ -19,6 +24,7 @@ struct Node {
 
 // Head pointer
 Node* head = NULL;
+//Node* tail = NULL;
 
 /* ---------------- CREATE (Insert at end) ---------------- */
 void insert(int value) {
