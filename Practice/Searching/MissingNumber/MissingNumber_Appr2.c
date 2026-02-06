@@ -10,6 +10,6 @@ int main(){
     for(int i=1;i<=n+1;i++){
         xor2^=i;
     }
-    printf("%d",xor1-xor2);
+    printf("%d",xor1^xor2);
     return 0;
 }
