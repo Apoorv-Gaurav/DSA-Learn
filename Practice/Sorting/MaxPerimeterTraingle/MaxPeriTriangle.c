@@ -31,7 +31,7 @@ int main(){
     int perimeter;
     int flag = 0;
     for(int i=0;i<n-2;i++){
-        if(arr[i]<arr[i+1]+arr[i+2]){
+        if(arr[i]<=arr[i+1]+arr[i+2]){
             flag = 1;
             perimeter = arr[i]+arr[i+1]+arr[i+2];
             break;
