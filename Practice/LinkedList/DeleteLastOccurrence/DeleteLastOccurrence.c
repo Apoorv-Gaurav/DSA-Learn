@@ -1,6 +1,4 @@
-//One-Pass Traversal with Slow and Fast Pointers - O(n) Time and O(1) Space
 
-//Hare and Tortoise Algorithm 
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -10,27 +8,38 @@ struct Node{
 };
 
 struct Node *head = NULL;
-//createNode
-//getMiddle
-void deleteMiddle(){
-    struct Node* slow = head;
-    struct Node* fast = head;
-    struct Node* prev;
+
+void deleteLastOccurrence(int val){
+    struct Node *last = NULL, *lastPrev = NULL;
+    struct Node *temp = head, *prev = NULL;
     if(head==NULL){
         return;
     }
-    if(head->next == NULL){
+    if(head->next == NULL && head->data == val){
+        free(head);
+        head = NULL;
         return;
     }
-
-    while(fast!=NULL && fast->next !=NULL){ //Careful  //AND
-        fast = fast->next->next;
-        prev = slow;
-        slow = slow->next;
+    while(temp!=NULL){        //Careful
+        if(temp->data == val){
+            last = temp;
+            lastPrev = prev;
+        }
+        prev= temp;
+        temp = temp->next;
     }
-    prev->next = prev->next->next;
-    free(slow);
-    return;
+    if(last == NULL){
+        return;
+    }
+    if(last != NULL){
+        if(lastPrev == NULL){
+            head = head->next;
+        }
+        else{
+            lastPrev->next = last->next;
+        }
+        free(last);
+    }
 
 }
 
@@ -62,13 +71,12 @@ void printfLL(){
     printf("%d -> NULL\n",temp->data); //Carefull
 }
 int main(){
-    int arr[] = {10,20,30,40,50};
+    int arr[] = {1,2,3,1,4};
     int n = sizeof(arr)/sizeof(arr[0]);
-
     for(int i=0;i<n;i++){
         insertNode(arr[i]);
     }
     printfLL();
-    deleteMiddle();
+    deleteLastOccurrence(1);
     printfLL();
 }
