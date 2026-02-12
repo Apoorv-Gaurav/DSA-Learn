@@ -55,11 +55,11 @@ void printfLL(){
         printf("NULL");
         return;
     }
-    while(temp->next != NULL){
+    while(temp!= NULL){
         printf("%d -> ",temp->data);
         temp = temp->next;
     }
-    printf("%d -> NULL\n",temp->data); //Carefull
+    printf("NULL\n"); //Carefull
 }
 int main(){
     int arr[] = {10,20,30,40,50};
