@@ -1,0 +1,13 @@
+#include <limits.h>
+int maxProfit(int* prices, int pricesSize) {
+    int buy = *prices, mxprofit= 0;
+    for(int i=1;i<pricesSize;i++){
+        if(*(prices+i)<buy){
+            buy = *(prices+i);
+        }
+        if((*(prices+i) - buy)>mxprofit){
+            mxprofit = *(prices+i) - buy;
+        }
+    }
+    return mxprofit;
+}
