@@ -1,3 +1,5 @@
+//DFS (Depth First Search)
+
 /*
 Time Complexity: O(n)
 Space Complexity: O(n), Recursive stack space
