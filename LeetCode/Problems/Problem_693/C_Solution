@@ -1,0 +1,15 @@
+bool hasAlternatingBits(int n) {
+    unsigned int x = n^(n>>1);
+    return (x&(x+1)) == 0;
+}
+
+//Using two property 
+/*
+x = n^(n>>1)
+If the bits were perfectly alternating, the result will be a sequence of all 1s (e.g., 11111...).
+
+A number that is all 1s has a special property:
+x & (x + 1) == 0
+This works because adding 1 to a sequence of all 1s produces a power of two, and ANDing them gives 0.
+
+*/
