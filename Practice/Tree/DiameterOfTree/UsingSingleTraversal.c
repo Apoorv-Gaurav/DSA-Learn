@@ -1,10 +1,11 @@
-
-//By Calculating Height For Each Node - O(n2) Time and O(h) Space
-
+//Using Single Traversal - O(n) Time and O(h) Space
 /*
-Height = number of edges
-Diameter of a binary tree = Number of edges in the longest path between any two nodes.
-*/
+The core idea is to efficiently calculate the diameter, 
+avoiding redundant height calculations. We use recursion 
+to find both height and diameter in a single traversal. 
+For each node, the longest path through it is the sum of its left and right subtree heights. 
+By tracking the maximum diameter, we find the longest path.*/
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -35,36 +36,25 @@ struct Node* insert(struct Node *root, int val){
     return root;
 }
 
-int findHeight(struct Node* root){
-    if(root == NULL) return 0;  // Minor change // Thoda Socho Dimak
+// Global variable to store the maximum diameter
+int maxDiameter = 0;
 
-    int left = findHeight(root->left);
-    int right = findHeight(root->right);
+int diameterRecur(struct Node* root){  //Modify heigth to diameterRecur
+    if(root == NULL) return 0;  
+
+    int left = diameterRecur(root->left);
+    int right = diameterRecur(root->right);
+
+    if(left+right > maxDiameter) maxDiameter = left+right;
 
     return (left > right ? left : right) + 1;
 }
 
 // Function to get diameter of a binary tree
 int diameter(struct Node* root) {
-    if (root == NULL)
-        return 0;
-
-    // Get the height of left and right sub-trees
-    int lheight = findHeight(root->left);
-    int rheight = findHeight(root->right);
-
-    // Diameter of current subtree 
-    int curr = lheight+rheight;
-
-    // Get the diameter of left and right sub-trees
-    int ldiameter = diameter(root->left);
-    int rdiameter = diameter(root->right);
-    
-    if (ldiameter > rdiameter && ldiameter > curr)
-        return ldiameter;
-    else if (rdiameter > ldiameter && rdiameter > curr) 
-        return rdiameter;
-    return curr;
+    maxDiameter = 0; 
+    diameterRecur(root);
+    return maxDiameter;
 }
 
 void inorder(struct Node* root) {
