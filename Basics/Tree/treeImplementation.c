@@ -54,6 +54,30 @@ void postorder(struct Node* root) {
     printf("%d ", root->data);
 }
 
+void levelOrder(struct Node *root){
+    struct Node *Queue[100];
+    int front = 0;
+    int rear = -1;
+
+    if(root != NULL){
+        Queue[++rear] = root;
+
+        while(front <= rear){
+            struct Node *temp = Queue[front++];
+
+            printf("%d -> ", temp->data);
+
+            if(temp->left != NULL){
+                Queue[++rear] = temp->left;
+            }
+
+            if(temp->right != NULL){
+                Queue[++rear] = temp->right;
+            }
+        }
+    }
+}
+
 
 int main() {
     struct Node* root = NULL;
