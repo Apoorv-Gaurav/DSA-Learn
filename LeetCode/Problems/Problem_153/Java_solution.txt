@@ -1,0 +1,24 @@
+//Modified Binary Search
+
+class Solution {
+    public int findMin(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        int last  = nums[right];
+        int pos = 0;
+        while(left<=right){
+            int mid = left - (left - right)/2;
+
+            if(nums[mid]<=last){
+                right = mid - 1;
+                pos = mid;
+            }
+            else{
+                left = mid + 1;
+            }
+        }
+        return nums[pos];
+    }
+}
+//Time Complexity: O(logn)
+//Space Complexity: O(1)
