@@ -1,0 +1,25 @@
+//Hard 
+//Similar to Problem 154
+class Solution {
+    public int findMin(int[] nums) {
+        int left = 0;
+        int n = nums.length;
+        int right = n - 1;
+        int last = nums[right];
+        int pos = right;
+        while(left<n && nums[left]==last){
+            left++;
+        }
+        while(left<=right){
+            int mid = left - (left-right)/2;
+            if(nums[mid] <= last){
+                pos = mid;
+                right = mid-1;
+            }
+            else{
+                left = mid + 1;
+            }
+        }
+        return nums[pos];
+    }
+}
