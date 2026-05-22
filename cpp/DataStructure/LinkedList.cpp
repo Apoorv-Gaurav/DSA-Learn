@@ -2,11 +2,12 @@
 using namespace std;
 
 // Node structure
-struct Node {
+class Node {
+public:
+
     int data;
     Node* next;
-    
-    /*
+     
     Node(int val){
         data = val;
         next = NULL;
@@ -18,7 +19,7 @@ struct Node {
     }
     Node(){
         next = nullptr;
-    } */
+    }
     
 };
 
