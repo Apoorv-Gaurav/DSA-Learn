@@ -1,0 +1,22 @@
+//twoPointer
+//Parity
+
+class Solution {
+    public void swap(int arr[], int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+    public int[] sortArrayByParity(int[] nums) {
+        int slow = 0;
+        int fast = 0;
+        while(fast < nums.length){
+            if(nums[fast] % 2 == 0){
+                swap(nums, slow, fast);
+                slow++;
+            }
+            fast++;
+        }
+        return nums;
+    }
+}
