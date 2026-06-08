@@ -1,0 +1,23 @@
+public static int longestWindow(int[] nums) {
+
+    int left = 0;
+    int maxLength = 0;
+
+    for (int right = 0; right < nums.length; right++) {
+
+        // Expand the window
+        // Add nums[right] to your window state
+
+        // Shrink while condition is violated
+        while (/* condition violated */) {
+
+            // Remove nums[left] from your window state
+            left++;
+        }
+
+        // Update answer
+        maxLength = Math.max(maxLength, right - left + 1);
+    }
+
+    return maxLength;
+}
