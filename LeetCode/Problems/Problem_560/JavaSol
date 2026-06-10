@@ -1,0 +1,15 @@
+//Using PrefixSum
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        int preSum = 0;
+        int count = 0;
+        hm.put(preSum, 1);
+        for(int i : nums){
+            preSum += i;
+            count += hm.getOrDefault(preSum - k, 0);
+            hm.put(preSum, hm.getOrDefault(preSum, 0)+1);
+        }
+        return count;
+    }
+}
