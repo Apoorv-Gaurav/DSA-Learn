@@ -1,0 +1,15 @@
+class Solution {
+    public int subarraysDivByK(int[] nums, int k) {
+        int preSum = 0;
+        int result = 0;
+        int[] hash = new int[k];
+        hash[0] = 1;
+        for(int num : nums){
+            preSum = preSum + num;
+            int remain = ((preSum % k)+k)%k;
+            result += hash[remain];
+            hash[remain]++;
+        }
+        return result;
+    }
+}
