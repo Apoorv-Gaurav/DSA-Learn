@@ -1,0 +1,18 @@
+//Maximum manhattan distance after all moves.
+class Solution {
+    public int maxDistance(String moves) {
+        if(moves.length() == 1){
+            return 1;
+        }
+        int U=0, D=0, R=0, L=0 ,k=0;
+        
+        for(char ch: moves.toCharArray()){
+            if(ch == '_') k++;
+            else if(ch == 'U') U++;
+            else if(ch == 'D') D++;
+            else if(ch == 'R') R++;
+            else if(ch == 'L') L++;
+        }
+        return Math.abs(U-D)+Math.abs(L-R) + k;
+    }
+}
